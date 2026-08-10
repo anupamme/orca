@@ -887,6 +887,12 @@ export function createIpcPtyTransport(opts: IpcPtyTransportOptions = {}): PtyTra
             snapshot: spawnResult.snapshot,
             snapshotCols: spawnResult.snapshotCols,
             snapshotRows: spawnResult.snapshotRows,
+            ...(spawnResult.snapshotPrefixAnsi !== undefined
+              ? { snapshotPrefixAnsi: spawnResult.snapshotPrefixAnsi }
+              : {}),
+            ...(spawnResult.snapshotFrameAnsi !== undefined
+              ? { snapshotFrameAnsi: spawnResult.snapshotFrameAnsi }
+              : {}),
             isAlternateScreen: spawnResult.isAlternateScreen,
             sessionExpired: spawnResult.sessionExpired,
             coldRestore: spawnResult.coldRestore,
